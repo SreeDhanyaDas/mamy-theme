@@ -1,0 +1,255 @@
+.scores_table_wrapper{
+    margin-bottom: 100px;
+}
+.title_align_left h3{
+    text-align: left;
+}
+
+.team_names{
+    display: flex;
+    justify-content: stretch;
+    align-items: center
+}
+
+.team_names img{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.team_names h3{
+    display: inline-block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.score_table_block .table{
+    background: #42464f;
+}
+
+
+.score_table_block .table thead th, .score_table_block .table tbody td{
+    vertical-align: middle;
+    color: #ffffff;
+    padding: 15px;
+    border-right: 2px solid #5b626a;
+    border-bottom: 2px solid transparent;
+}
+
+.score_table_block .table thead{
+    background: #50575f;
+}
+
+.score_table_block .table tbody tr td{
+    border-right: 2px solid #3a4050;
+}
+
+.score_table_block .table tbody tr:nth-child(even) td{
+    background: #61686e;
+    border-right: 2px solid #5a6167;
+}
+
+.each_team_scores{
+    border-bottom: 1px solid #e4e4e4;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.teams_vs{
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.teams_vs span{
+    display: block;
+    width: 75px;
+}
+
+.teams_vs h2{
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.team_score_val{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.team_score_val span{
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.team_score_val em{
+    margin: 0 7px;
+    font-size: 30px;
+}
+
+.each_group_tbl{
+    margin-bottom: 15px;
+    border: 1px solid #e4e4e4;
+}
+
+.each_group_tbl .head_block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2f2d72;
+    padding: 7px;
+}
+
+.each_group_tbl .head_block h2{
+    color: #ffffff;
+    font-size: 15px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.each_group_tbl .head_block span{
+    color: #ffffff;
+    font-size: 15px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.each_group_tbl .table {
+    margin-bottom: 0;
+}
+
+.each_group_tbl .table thead{
+    background: #eeeeee;
+}
+
+.each_group_tbl .table thead th, .each_group_tbl .table tbody td{
+    padding: 0 7px;
+    font-size: 15px;
+    border-right: 1px solid #e4e4e4;
+    vertical-align: middle;
+}
+
+.each_group_tbl .table tbody td img{
+    width: 70px;
+}
+
+/* .each_group_tbl .table tbody td:first-child{
+    font-weight: 700;
+} */
+.each_group_tbl .table tbody td:first-child {
+    font-weight: 700;
+    width: 45%;
+}
+
+.each_group_tbl .table tbody td{
+    font-weight: 600;
+}
+
+.sec_bottom{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #2f2d72;
+    padding: 7px;
+}
+
+.i-ico{
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.i-ico i{
+    width: 15px;
+    height: 15px;
+    background: #f8374b;
+    color: #ffffff;
+    text-align: center;
+    line-height: 15px;
+    font-size: 13px;
+}
+
+.each_news{
+    border-bottom: 1px solid #e4e4e4;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.each_news h3{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.each_news p{
+    font-size: 14px;
+    line-height: 22px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.each_news a{
+    color: #000000;
+    font-size: 13px;
+    text-align: right;
+    display: block;
+}
+
+.each_news a i{
+    width: 15px;
+    height: 15px;
+    background: #f63c47;
+    color: #ffffff;
+    text-align: center;
+    line-height: 15px;
+    font-size: 13px;
+}
+
+.load_more_btn {
+    margin-top: 30px;
+    display: block;
+    clear: both;
+    text-align: center;
+    height: 40px;
+    background: #382770;
+    /* background: #333333; */
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 6px;
+}
+button.load_more_btn:hover, button.load_more_btn:active, button.load_more_btn:focus{
+    opacity: 0.9;
+    background: #ea3f3b;
+    color: #ffffff;
+}
+.cbp-hrmenu .cbp-hrsub.sub-little.submenu_list {
+    left: 100%;
+    margin: 0;
+}
+
+.cbp-hrmenu .submenu_list { 
+    display: none;
+	
+}
+img.banner-logo-view {
+    margin-top: 25rem;
+    top: 10;
+    width: 28% !important;
+}
+
+/* img.banner-logo-view {
+    width: 20% !important;
+} */
+
+td.logo-imag {
+    display: flex;
+    justify-content: center;
+}

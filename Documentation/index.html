@@ -1,0 +1,228 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>TennisClub</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css'/>
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+		.style_s span{color:#18b74c}
+		h3{background:#f59123;padding:5px; text-shadow:0 1px 1px rgba(0,0,0,0.5); font-family:'Open Sans', Sans-Serif; font-weight:400; color:#fff;}
+		h3 a{color:#000;text-shadow:0 0px 0px rgba(0,0,0,0.5);}
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	   <div class="col-md-12">
+		<h3 class="center alt">&ldquo;WT Tennis&rdquo; Documentation by &ldquo;Alessio Corsini&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;WT Tennis&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 04/05/2014<br>
+					By: Corsaro<br>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">
+                Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/corsaro">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+            <li><a href="#news">Section News</a></li>
+            <li><a href="#score">Section Top Score</a></li>
+            <li><a href="#products">Section Top Products</a></li>
+            <li><a href="#video">Section Top Video</a></li>
+			<li><a href="#cssFile">CSS Files and Structure</a></li>
+
+		</ol>
+		
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>Layout Responsive all divided into section part of page.<br />
+        
+        This theme is perfectly responsive and mobile optimized.<br />
+       </p>
+       <h4>Change color you template</h4>
+		<p>
+          For change color at your template need to add at other page the css green or blue and remove the css style_dir
+       </p>
+       <h4>Structure Html home page</h4>
+		<img src="assets/images/htmlstructure.png" alt="HTML Structure" />
+        <br /><br />
+        <hr>
+         <h3 id="news"><strong>Section Statistic</strong> - <a href="#toc">top</a></h3>
+        <p>This circolar statistic</p>
+        <img src="assets/images/news.png" alt="HTML Structure" /><br /><br />
+        
+        <p>This is code inside the file javascript inside folder circle where you setting the parameters</p>
+        <pre>
+            Plugin.defaults = {
+            namespace: 'asPieProgress',
+            min: 0,
+            max: 100,
+            goal: 100,
+            size: 180,
+            speed: 15, // speed of 1/100
+            barcolor: '#f59123',
+            barsize: '4',
+            trackcolor: '#f2f2f2',
+            fillcolor: 'none',
+            easing: 'ease',
+            numberCallback: function(n) {
+                var percentage = this.getPercentage(n);
+                return percentage + '%';
+            },
+            contentCallback: null
+        };
+        </pre><br />
+        <p>But you can setting the color inside the code html, in thi mode </p>
+
+        <pre>
+           data-goal="83" //this is fot percentage number
+           data-barcolor="#f59123"  // this is for setting color
+        </pre>
+
+        <h3 id="score"><strong>Section Top score tabs</strong> - <a href="#toc">top</a></h3>
+         <img src="assets/images/topscore.png" alt="HTML Structure" />
+        <p>The tabs for the top score use this script, the saem for table you find in results</p>
+        <pre>
+            jQuery(document).ready(function () {
+                jQuery('.tabs .tab-links a').on('click', function (e) {
+                    var currentAttrValue = jQuery(this).attr('href');
+
+                    // Show/Hide Tabs
+                    jQuery('.tabs ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
+
+                    // Change/remove current tab to active
+                    jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+                    e.preventDefault();
+                });
+            });
+        </pre><br />
+        <p>Fo more info and details it s this web site </p><a href="http://inspirationalpixels.com/tutorials/creating-tabs-with-html-css-and-jquery">Go to site</a>
+        <p>The tabs have different effect need only to change this part</p><br />
+        <p>DEFAULT:</p>
+        <pre>
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+        </pre><br />
+        <p>FADE:</p>
+        <pre>
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).fadeIn(400).siblings().hide();
+        </pre><br />
+        <p>SLIDE 1:</p>
+        <pre>
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).siblings().slideUp(400);
+        jQuery('.tabs ' + currentAttrValue).delay(400).slideDown(400);
+        </pre>
+        <p>SLIDE 2:</p>
+        <pre>
+        // Show/Hide Tabs
+        jQuery('.tabs ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
+        </pre>
+        <h3 id="products"><strong>Section Top Products</strong> - <a href="#toc">top</a></h3>
+        <p>This is a tipical box slider and this work with this code js you find down in the page index for modify the number the slide min and max, but inside the file bxslider you find more option</p>
+        <img src="assets/images/products.png" alt="HTML Structure" /><br /><br />
+        <pre>
+            $('#product').bxSlider({
+                minSlides: 3,
+                maxSlides: 5,
+                slideWidth: 215,
+                slideMargin: 10
+            });
+        </pre>
+        <hr>
+		
+        <br />
+		
+		<h3 id="H1"><strong>Contact</strong> - <a href="#toc">top</a></h3>
+        <br /><br />
+        <p>Replace you email inside $to</p>
+        <pre>
+        
+            $to = "yourmail@gmail.com";
+            $name = $_POST['name'];
+            $message = $_POST['message'];
+            $from = $_POST['email'];
+            $headers = "From:" . $from;
+            mail($to,$name,$message,$headers);
+            echo "Mail Sent.";
+            
+        </pre>
+        <hr>
+		<h3 id="cssFile"><strong>Structure file css</strong> - <a href="#toc">top</a></h3>
+        <p>Css in file style_dir you find all comment for website structure</p>
+        <pre>
+        
+        /*****      CSS STRUCTURE   INDEX      ****/
+
+        /***** 
+
+        LOGIN TOP 
+        SUMMARY BODY 
+        TOP MATCH (Tabs, Tab Links, Content of Tabs)
+        TOP NEWS 
+        TOP PRODUCT
+        TOP VIDEO
+
+        *****/
+
+        /*****      CSS STRUCTURE   PAGES      ****/
+
+        /*****
+
+        PAGE TOURNAMENTS
+        PAGE PLAYERS ( Countdown )
+        PAGE NEWS
+        PAGE VIDEO
+        PAGE SINGLE MATCH
+        PAGE SHOP ( Zoom )
+        SPONSOR
+        RIGHT COLUMN
+        LOGIN REGISTER PAGES
+        ALL MATCHES
+        CONTACT
+        FOOTER
+        HOME 2 WITH COUNTDOWN
+
+        ******/
+        </pre>
+
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Corsaro</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+        </div>
+	</div><!-- end div .container -->
+</body>
+</html>
