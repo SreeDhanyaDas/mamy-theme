@@ -50,7 +50,18 @@ $post_cat_name = $post_categories[0]->name;
                 }
             }
 
+            $standing_category = array();
+            $standing_categories = get_option('standing_categories');
 
+            foreach ($standing_categories as $category) {
+                if ($post_cat_slug == $category['parent_standings']) {
+                    $standing_category = $category['sub_standing'];
+                    array_push($standing_category, $category['parent_standings']);
+                }else {
+                    array_push($standing_category, $post_cat_slug);
+                }
+            }
+            
             $query = new WP_Query(
                 array(
                     'post_type' => 'sp_event',
@@ -67,16 +78,17 @@ $post_cat_name = $post_categories[0]->name;
                         'inclusive' => true,
                     ),
                     'tax_query' => array(
+                        'relation' => 'AND',
                         array(
                             'taxonomy' => 'sp_league',
                             'field' => 'slug',
-                            // 'terms' => 'under-15-eccellenza-2-fase-coppa',
-                            // 'terms' => 'under-17-eccellenza-fase-completamento',
-                            'terms' => strval($post_cat_slug),
+                            'terms' => $standing_category,
                         ),
+
                     ),
                 )
             );
+
 
             $i = 0;
             $calendar_array = array();
@@ -215,46 +227,14 @@ $post_cat_name = $post_categories[0]->name;
                 }
                 wp_reset_query();
             }
+
             $current_page_id = get_the_ID();
             $parent_category = get_post_meta($current_page_id, 'parent_category', true);
-
-            $pages_args = array(
-                'post_type' => 'page',
-                'posts_per_page' => -1,
-                'order' => 'DES',
-                'orderby' => 'title',
-                'meta_query' => array(
-                    array(
-                        'key' => 'parent_category',
-                        'value' => strval($parent_category),
-                        'compare' => '=',
-                    )
-                )
-            );
-
-            $pages_query = new WP_Query($pages_args);
 
             ?>
             <div id="c-calend" class="top-score-title right-score col-md-12"
                 style="margin-top:60px; margin-bottom:60px">
-                <?php if ($pages_query->have_posts()) {
-                    ?>
-                    <div class="page-nav-tab" style="margin-top:40px; margin-bottom:40px">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <?php
-                                while ($pages_query->have_posts()) {
-                                    $pages_query->the_post();
-                                    ?>
-                                    <li class="breadcrumb-item <?php if (get_the_ID() === $current_page_id): ?>active<?php endif; ?>" aria-current="page"><a href="<?= the_permalink() ?>"><?= the_title() ?></a></li>
-                                <?php }
-                                wp_reset_postdata(); ?>
-                            </ol>
-                        </nav>
-                    </div>
-                <?php }
-
-                if ($calendar_array) { ?>
+                <?php if ($calendar_array) { ?>
                     <?php $i = 1;
                     foreach ($calendar_array as $value) { ?>
                         <div class="accordion" id="section<?= $i ?>"><i class="fa fa-calendar-o"></i>

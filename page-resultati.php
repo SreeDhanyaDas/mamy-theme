@@ -50,32 +50,50 @@ $post_cat_name = $post_categories[0]->name;
                             $cat_slug = $post_cat_slug;
                         }
                     }
-                    
-                    
+
                     $today = date('Y-m-d');
+
+                    $standing_category = array();
+                    $standing_categories = get_option('standing_categories');
+        
+                    foreach ($standing_categories as $category) {
+                        if ($post_cat_slug == $category['parent_standings']) {
+                            $standing_category = $category['sub_standing'];
+                            array_push($standing_category, $category['parent_standings']);
+                        }else {
+                            array_push($standing_category, $post_cat_slug);
+                        }
+                    }
+
                     $lastgame_args = array(
                         'post_type' => 'sp_event',
-                        // 'post_status' => 'publish',
+                        // 'tax_query' => array(
+                        //     array(
+                        //         'taxonomy' => 'sp_league',
+                        //         'field' => 'slug',
+                        //         'terms' => $cat_slug
+                        //     )
+                        // ),
                         'tax_query' => array(
+                            'relation' => 'AND',
                             array(
                                 'taxonomy' => 'sp_league',
                                 'field' => 'slug',
-                                'terms' => $cat_slug
-                            )
+                                'terms' => $standing_category,
+                            ),
+    
                         ),
                         'date_query' => array(
                             array(
                                 'before' => $today,
-                                // Retrieve posts before the current date
                                 'inclusive' => true,
-                                // Include posts on the current date
+
                             ),
                         ),
                         'posts_per_page' => -1,
                         'orderby' => 'date',
-                        // Order by date
                         'order' => 'DESC',
-                        // Order in descending order to get the latest posts first
+
                     );
 
                     $last_game = new WP_Query($lastgame_args);
@@ -172,11 +190,7 @@ $post_cat_name = $post_categories[0]->name;
                     }
 
                     $columnsToShow = 3;
-
-                    // echo "<pre>";
-                    // print_r($nextgame_list);
-                    // echo "<pre>";
-                    
+                                        
                     // Display images up to the specified limit
                     $displayedList = array_slice($nextgame_list, 0, $columnsToShow);
                     ?>
@@ -354,7 +368,7 @@ $post_cat_name = $post_categories[0]->name;
                         <h3>ULTIME NEWS</h3>
                     </div>
                     <?php
-                   
+
                     $no_articles_post = get_page_by_path('no-articles', OBJECT, 'news');
                     // Check if the post with the slug 'no-articles' exists
                     if ($no_articles_post) {

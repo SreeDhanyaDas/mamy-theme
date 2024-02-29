@@ -173,7 +173,19 @@ $post_cat_name = $post_categories[0]->name;
                 </script>
 
             </div>
-            <?php $today = date('Y-m-d');
+            <?php 
+            $today = date('Y-m-d');
+
+            $league_category = NULL;
+            if(isset($_GET['league_list'])){
+                $selected_postID = $_GET['league_list'];
+                $sp_league_terms = wp_get_post_terms($selected_postID, 'sp_league', array('fields' => 'slugs'));
+                $league_category = $sp_league_terms[0];
+               
+            } else {
+                $league_category = $cat_slug;
+            }      
+
             $lastgame_args = array(
                 'post_type' => 'sp_event',
                 'post_status' => 'publish',
@@ -181,33 +193,24 @@ $post_cat_name = $post_categories[0]->name;
                     array(
                         'taxonomy' => 'sp_league',
                         'field' => 'slug',
-                        'terms' => strval($cat_slug)
+                        'terms' => strval($league_category)
                     )
                 ),
                 'date_query' => array(
                     array(
                         'before' => $today,
-                        // Retrieve posts before the current date
                         'inclusive' => true,
-                        // Include posts on the current date
                     ),
                 ),
                 'posts_per_page' => -1,
                 'orderby' => 'date',
-                // Order by date
                 'order' => 'DESC',
-                // Order in descending order to get the latest posts first
             );
 
             $last_game = new WP_Query($lastgame_args);
 
             $nextgame_list = array(); // Initialize an empty array to store post data
             
-            
-
-            // echo "<prev>";
-            // print_r($game_results);
-            // echo "</prev>";
 
             if ($last_game->have_posts()) {
                 while ($last_game->have_posts()) {
