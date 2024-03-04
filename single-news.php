@@ -12,7 +12,7 @@
 get_header();
 
 /* Start the Loop */
-while(have_posts()):
+while (have_posts()):
     the_post();
     $newsID = get_the_ID();
     ?>
@@ -41,13 +41,13 @@ while(have_posts()):
             </div>
         </div>
         <?php
-        $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $urlComponents = parse_url($actual_link);
-        if(isset($urlComponents['query'])) {
+        if (isset($urlComponents['query'])) {
             $urlComponents = parse_url($actual_link);
             parse_str($urlComponents['query'], $queryParameters);
 
-            if(isset($queryParameters['type'])) {
+            if (isset($queryParameters['type'])) {
                 $cat_slug = $_GET['type'];
 
                 ?>
@@ -80,7 +80,7 @@ while(have_posts()):
                                 <?php
                                 $no_articles_post = get_page_by_path('no-articles', OBJECT, 'news');
                                 // Check if the post with the slug 'no-articles' exists
-                                if($no_articles_post) {
+                                if ($no_articles_post) {
                                     $no_articles_post_id = $no_articles_post->ID;
 
                                     $query = new WP_Query(
@@ -99,7 +99,7 @@ while(have_posts()):
                                 <ul id="product" class="bxslider">
                                     <?php
 
-                                    while($query->have_posts()) {
+                                    while ($query->have_posts()) {
                                         $query->the_post();
                                         $description = get_the_content();
                                         $trimmed_description = wp_trim_words($description, 10, '...');
@@ -183,13 +183,13 @@ while(have_posts()):
                             $single_gallery_image = wp_get_attachment_image_src($single_galleryID, 'full');
                             $single_gallery_imageURL = $single_gallery_image[0];
 
-                            if(!$gallery_imageURL) {
+                            if (!$gallery_imageURL) {
                                 $photogallery = $single_gallery_imageURL;
                             } else {
                                 $photogallery = $gallery_imageURL;
                             }
 
-                            if($photogallery) {
+                            if ($photogallery) {
                                 ?>
                                 <div class="photogallery col-md-12">
                                     <h5 class="gallery-title">PHOTOGALLERY DEL MATCH</h5>
@@ -207,7 +207,7 @@ while(have_posts()):
                                 <?php
                                 $no_articles_post = get_page_by_path('no-articles', OBJECT, 'news');
                                 // Check if the post with the slug 'no-articles' exists
-                                if($no_articles_post) {
+                                if ($no_articles_post) {
                                     $no_articles_post_id = $no_articles_post->ID;
 
                                     $query = new WP_Query(
@@ -229,11 +229,11 @@ while(have_posts()):
                                     // Rest of your loop or processing logic here
                                 }
 
-                                while($query->have_posts()) {
+                                while ($query->have_posts()) {
                                     $query->the_post();
                                     $description = get_the_content();
                                     $trimmed_description = wp_trim_words($description, 15, '...');
-                                    if($newsID !== get_the_id()) {
+                                    if ($newsID !== get_the_id()) {
                                         ?>
                                         <div class="right-content">
                                             <p class="news-title-right">
@@ -253,7 +253,7 @@ while(have_posts()):
                             </div>
                             <div class="readmore">
                                 <a href="<?php echo site_url(); ?>" class="sg-more">
-                                    <!-- <a href="<?php // echo site_url(); ?>/news-2" class="sg-more"> -->
+                                    <!-- <a href="<?php // echo site_url();  ?>/news-2" class="sg-more"> -->
                                     <button class="btn btn-default read-more-single">Altri risultati</button>
                                 </a>
                             </div>

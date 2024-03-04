@@ -9,9 +9,6 @@ $post_cat_slug = $post_categories[0]->slug;
 $post_cat_term_id = $post_categories[0]->term_id;
 $post_cat_name = $post_categories[0]->name;
 
-// echo "<prev>"; 
-// print_r('hello');
-// echo"</prev>";
 $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 // Parse the URL to extract its components
 $urlComponents = parse_url($actual_link);
@@ -146,9 +143,7 @@ if (isset($urlComponents['query'])) {
             }
             wp_reset_query();
         }
-        // echo "<pre>";
-        // print_r($list_player);
-        // echo "</pre>";
+        
         ?>
         <section class="player-view-details">
             <?php

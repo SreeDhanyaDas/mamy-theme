@@ -279,9 +279,7 @@ $post_cat_name = $post_categories[0]->name;
                     <div class="teams_scoreboard">
                         <?php $i = 0;
                         foreach ($nextgame_list as $value) {
-                            // echo "<prev>";
-                            // print_r($value);
-                            // echo "</prev>";
+                            
                             if ($i == 3) {
                                 break;
                             } 

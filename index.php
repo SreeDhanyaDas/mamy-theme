@@ -78,9 +78,7 @@ if ($latest_game->have_posts()) {
     $nextgame_list[] = $post_data;
   }
 }
-// echo "<pre>";
-// print_r($nextgame_list);
-// echo "</pre>";
+
 ?>
 <!--SECTION CONTAINER SLIDER-->
 <section id="summary-slider">
@@ -151,28 +149,6 @@ if ($latest_game->have_posts()) {
 <section class="news_slide-over-color">
   <div class="news_slide-over"></div>
   <div class="container">
-    <!--<div class="col-xs-12 col-md-12 top-first-info">
-               <div class="col-md-4">
-                     <section class="slider">
-                            <div id="slider" class="flexslider flexslider-attachments">
-                                <ul class="slides">
-                                    <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/slider/mini-slider/thumb1.jpg"><img src="http://placehold.it/1024x700" alt=""/></li>
-                                  <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/slider/mini-slider/thumb2.jpg"><img src="http://placehold.it/1024x700" alt=""/></li>
-                                  <li data-thumb="<?php echo get_template_directory_uri(); ?>/images/slider/mini-slider/thumb3.jpg"><img src="http://placehold.it/1024x700" alt=""/></li>
-                                </ul>
-                            </div>
-                            <div class="slide-news-bottom"><a href="#">Lo staff</a><a class="i-ico" href="#"><i class="fa fa-angle-double-right"></i></a></div>
-                     </section>
-                </div>
-                <div class="col-md-4">
-                     <img src="http://placehold.it/1024x700" alt=""/>
-                     <div class="slide-news-bottom"><a href="#">La squadra</a><a class="i-ico" href="#"><i class="fa fa-angle-double-right"></i></a></div>
-                </div>
-                <div class="col-md-4">
-                     <img src="http://placehold.it/1024x700" alt=""/>
-                     <div class="slide-news-bottom"><a href="#">La storia</a><a class="i-ico" href="#"><i class="fa fa-angle-double-right"></i></a></div>
-                </div>
-              </div>-->
     <div class="col-xs-12 col-md-12 top-slide-info">
       <?php
       $no_articles_post = get_page_by_path('no-articles', OBJECT, 'news');
@@ -289,12 +265,11 @@ $lastmatch_bg_img = $lastmatch_image_url[0];
       $section_atp_match_url = wp_get_attachment_image_src($section_atp_match_id, 'full');
       $section_atp_match_image = $section_atp_match_url[0];
       ?>
-      <div class="next-match-co col-xs-12 col-md-12"  style='background: url(<?= $section_atp_match_image ?>) no-repeat center center' >
+      <div class="next-match-co col-xs-12 col-md-12"
+        style='background: url(<?= $section_atp_match_image ?>) no-repeat center center'>
         <div id="nextmatch-content" class="experience">
           <div class="col-xs-12 atphead">
-            <!-- https://staging.basketcollegenovara.it/wp-content/uploads/2023/12/MicrosoftTeams-image-2.png -->
-            <div class="match-sing-title"><img src="<?php echo get_template_directory_uri(); ?>/images/fip.png" alt=""
-                height="20px" />FIP Piemonte | Serie C</div>
+            <div class="match-sing-title"><img src="<?php echo get_template_directory_uri(); ?>/images/fip.png" alt="" height="20px" />FIP Piemonte | Serie C</div>
           </div>
           <?php
           $lastgame_args = array(
@@ -356,7 +331,7 @@ $lastmatch_bg_img = $lastmatch_image_url[0];
               $post_time = $post_date_time->format('H:i');
               if ($i == 1) {
                 break;
-              } // show only 1 items?>
+              } // show only 1 items  ?>
               <div class="col-xs-4 pht-1 pht-left">
                 <div class="img-face-home">
                   <?php $next1_game = wp_get_attachment_image_src(get_post_thumbnail_id($gamelist['post_meta']['sp_team'][0]), 'full'); ?>
@@ -412,53 +387,6 @@ $lastmatch_bg_img = $lastmatch_image_url[0];
             }
           }
           ?>
-      <!--div class="col-md-4 home-page">
-                   <div class="main">
-                                <div class="tabs animated-slide-2">
-                                 <div class="result-filter">
-                                    <ul class="tab-links">
-                                        <li class="active"><a href="#tab1111">ATP</a></li>
-                                        <li><a href="#tab2222">WTA</a></li>
-                                        <li><a href="#tab3333">DBL</a></li>
-                                    </ul>
-                                    </div>
-                                    <div class="tab-content-point">
-                                        <div id="tab1111" class="tab active">
-                                        <table class="tab-score">
-                                          <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">Nicol Dorian</a></td><td><img src="images/flags/serbia.png" alt="" /></td><td>12770</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">Rafael Milk</a></td><td><img src="images/flags/argentina.png" alt="" /></td><td>10670</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">Roger Figo</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>7490</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">St. Waiker</a></td><td><img src="images/flags/brazil.png" alt="" /></td><td>5985</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">David Ruby</a></td><td><img src="images/flags/japan.png" alt="" /></td><td>4765</td></tr>
-                                          
-                                         </table>
-                                        </div>
-                                        <div id="tab2222" class="tab">
-                                        <table class="tab-score">
-                                        <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">Serena Brain</a></td><td><img src="images/flags/usa.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">Simona Figo</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">Nio Red</a></td><td><img src="images/flags/italy.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">Petra Curt</a></td><td><img src="images/flags/denmark.png" alt="" /></td><td>1234</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">Ag. Rader</a></td><td><img src="images/flags/uk.png" alt="" /></td><td>1234</td></tr>
-                                         </table>
-                                        </div>
-                                        <div id="tab3333" class="tab">
-                                        <table class="tab-score">
-                                        <tr class="top-scrore-table"><td class="score-position">POS.</td><td>PLAYER</td><td>NAT.</td><td>POINTS</td></tr>
-                                          <tr><td class="score-position">1.</td><td><a href="single_player.html">name1</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">2.</td><td><a href="single_player.html">name2</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">3.</td><td><a href="single_player.html">name3</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">4.</td><td><a href="single_player.html">name4</a></td><td>-</td><td>1234</td></tr>
-                                          <tr><td class="score-position">5.</td><td><a href="single_player.html">name5</a></td><td>-</td><td>1234</td></tr>
-                                         </table>
-                                        </div>
-                                    </div>
-                                    <div class="score-view-all"><a class="pl-point-button" href="results.html">View All</a></div>
-                                </div>
-                            </div>
-                </div-->
     </div><!--Close Top Match-->
   </div>
 </section>
@@ -535,9 +463,9 @@ $lastmatch_bg_img = $lastmatch_image_url[0];
             $nextgame2 = wp_get_attachment_image_src(get_post_thumbnail_id($gamelist['post_meta']['sp_team'][1]), 'full');
             ?>
             <div class="match-team-list">
-              <img class="t-img1 logos-team" src="<?= $nextgame1[0] ?>"  alt="" />
+              <img class="t-img1 logos-team" src="<?= $nextgame1[0] ?>" alt="" />
               <span class="txt-vs"> - vs - </span>
-              <img class="t-img2 logos-team" src="<?= $nextgame2[0] ?>"  alt="" />
+              <img class="t-img2 logos-team" src="<?= $nextgame2[0] ?>" alt="" />
               <p>
                 <?php echo get_the_date('j F Y', $gamelist['post_id']); ?> -
                 <?php echo $post_time; ?>
@@ -646,362 +574,6 @@ $md_bg_img = $md_image_url[0];
         </div>
       </div>
 </section>
-
-<!--SECTION STATISTIC RESULTS-->
-<!--section id="resultsPoint">
-           <div class="container">
-                    <div class="top-match col-xs-12 col-md-12">
-                     <div class="top-score-title">
-                        <h3>Statistics<span class="point-little">.</span></h3>
-                        <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
-                                    that a normal humans can understand.</p>
-                        <div class="col-xs-12 circle-percentage">
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="83" data-barcolor="#f59123" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">0%</div>
-                                <div class="pie_progress__content">Super-Senior</div>
-                             </div>
-                            </div>
-                          </div>
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="65" data-barcolor="#2c333b" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">0%</div>
-                                <div class="pie_progress__content">Senior</div>
-                             </div>
-                            </div>
-                          </div>
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="32" data-barcolor="#f59123" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">0%</div>
-                                <div class="pie_progress__content">Pro</div>
-                             </div>
-                            </div>
-                          </div>
-                          <div class="col-xs-3">
-                            <div class="pie_progress" role="progressbar" data-goal="73" data-barcolor="#2c333b" data-barsize="10">
-                             <div class="pie_content">
-                                <div class="pie_progress__number">0%</div>
-                                <div class="pie_progress__content">Junior</div>
-                             </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="clear"></div>
-                       
-                      </div>
-                    </div>
-                </div>
-     </section-->
-
-<!--section id="parallax-info">
-        <div class="clearfix">
-          <div class="col-md-6 yoga-desc title">
-                    <h1>Robert Doe</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. 
-                    Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.</p>
-
-                    <p class="txt-break">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ligula odio. Sed id metus felis. Ut pretium nisl non justo condimentum id tincidunt nunc faucibus. Ut neque eros, pulvinar eu blandit quis, lacinia nec ipsum. Etiam vel orci ipsum. Sed eget velit ipsum. 
-                    Duis in tortor scelerisque felis mattis imperdiet. Donec at libero tellus. Suspendisse consectetur consectetur bibendum.</p>
-                    <img class="signature" src="images/signature.png" alt=""/>
-               </div>
-               <div class="col-md-6 cup-img" style="padding:0;">
-                     <img src="images/people.jpg" alt=""/>
-               </div>		
-          </div>
-    </section-->
-<!-- SECTION SUBSCRIPTIONS-->
-<!--section class="bbtxt-content-subscription">
-           <div class="container">
-                    <div class="col-xs-12 bbtxt-box">
-                        <h4><i class="fa fa-quote-left"></i><span class="middle-txt">Enter in</span> <span class="point-big">WT</span> Tennis<i class="fa fa-quote-right"></i></h4>
-                        <p class="subin">The best tennis tour around the europe step by step.</p>
-                        <div class="subscription-content">
-                            <div class="col-md-4">
-                                <div class="subscription-tennis">
-                                     
-                                     <h3>subscription<span> Free</span></h3>
-                                     
-                                     <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
-                                     <a class="pl-point-button" href="">Read more</a>
-                                 </div>
-                             </div>
-                             <div class="col-md-4">
-                                <div class="subscription-tennis">
-                                   
-                                  <h3>subscription<span> Gold</span></h3>
-                                  
-                                  <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
-                                  <a class="pl-point-button" href="">Read more</a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="subscription-tennis">
-                                  
-                                  <h3>subscription<span> Premium</span></h3>
-                                  
-                                  <p class="desc-subscription">A Responsive Online Shopping website can attract its more is buyers as the user.</p>
-                                  <a class="pl-point-button" href="">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-               </div>
-     </section-->
-<!--SECTION LAST PHOTO-->
-<!--section id="news-section">
-           <div class="container">
-                   <div class="top-match col-xs-12 col-md-12">
-                      <div class="news-content">
-                       <h3 class="news-title">Latest <span>Photo</span><span class="point-little">.</span></h3>
-                       <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
-                                    that a normal humans can understand.</p>
-                       <div id="container-vert-n">
-                        <dl class="group">
-                            <dt></dt>
-                        <dd>
-                          <ul class="filter group albumFilter"> 
-                            <li data-filter="*" class="current"><a  href="#">ALL</a></li> 
-                            <li data-filter=".cat1"><a  href="#">ATP</a></li> 
-                            <li data-filter=".cat2"><a  href="#">WTP</a></li> 
-                            <li data-filter=".cat3"><a  href="#">BEAUTY</a></li> 
-                            <li data-filter=".cat4"><a  href="#">MEETING</a></li> 
-                          </ul> 
-                        </dd>
-                      </dl>
-                        <div class="clear"></div>
-                        </div>
-                    </div>
-                  </div>
-            </div>
-            
-         <ul class="portfolio group albumContainer"> 
-                    <li class="item block cat2 col-xs-3">
-                      <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hannah 1" /></a>
-                        </li> 
-                    <li class="item block cat1 col-xs-3">
-                      <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 1" /></a>
-                        </li>
-                    <li class="item block cat1 col-xs-3">
-                      <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 2" /></a>
-                        </li>
-                    <li class="item block cat3 col-xs-3">
-                      <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
-                        </li>
-                    <li class="item block cat1 cat3 col-xs-3">
-                      <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
-                        </li>
-                    <li class="item block cat2 col-xs-3">
-                      <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Beauty 2" /></a>
-                        </li>
-                        <li class="item block cat1 col-xs-3">
-                      <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Hair 1" /></a>
-                        </li>
-                        <li class="item block cat1 cat3 col-xs-3">
-                      <a href="http://placehold.it/1600x1000" data-gal="prettyPhoto[portfolio]"><img src="http://placehold.it/1280x800"  alt="Yulia Gorbachenko, Traction 1" /></a>
-                        </li>
-                  </ul>         
-     </section-->
-<!--SECTION CLIENTS-->
-<!--section class="container">
-           <div class="top-video col-xs-12 col-md-12">
-             <h3>OUR <span>CLIENT</span><span class="point-little">.</span></h3>
-             <p class="subtitle">A small creative team, trying to enrich the lives of others and build brands 
-                                    that a normal humans can understand.</p>
-
-                 <div id="testimonials">
-                   
-                          <div id="owl-demo" class="owl-carousel">
-                            <div class="item">
-                                 <img src="http://placehold.it/235x224" alt="" />
-                                 <div class="testimon-desc">
-                                      <p>Fusce risus metus, placerat in <span>consectetur</span> eu, porttitor a est sed sed dolor lorem cras adipiscing</p>
-                                      <p>A small <span>creative</span> team, trying to enrich the lives of others</p>
-                                      <p class="nm-name">- Brian Rood</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                 <img src="http://placehold.it/235x224" alt="" />
-                                 <div class="testimon-desc">
-                                      <p>Fusce risus metus, placerat in <span>consectetur</span> eu, porttitor a est sed sed dolor lorem cras adipiscing</p>
-                                      <p>A small <span>creative</span> team, trying to enrich the lives of others</p>
-                                      <p class="nm-name">- Miki Rood</p>
-                                 </div>
-                           </div>
-                            <div class="item">
-                                <img src="http://placehold.it/235x224" alt="" />
-                                <div class="testimon-desc">
-                                    <p>Fusce risus metus, placerat in <span>consectetur</span> eu, porttitor a est sed sed dolor lorem cras adipiscing</p>
-                                      <p>A small <span>creative</span> team, trying to enrich the lives of others</p>
-                                      <p class="nm-name">- Robert Rood</p>
-                                </div>
-                            </div>
-                          </div>
-                    </div>
-            </div>
-     </section-->
-<!--SECTION TOP PRODUCTS-->
-<!--section class="top-product top-product-news">
-        
-           <div class="container">
-           <div class="col-xs-12 col-md-12">
-             <h3>Top <span>Product</span><span class="point-little">.</span></h3>
-             <p class="subtitle ground">A small creative team, trying to enrich the lives of others and build brands 
-                                    that a normal humans can understand.</p>
-             <ul id="product" class="bxslider">
-              <li>
-                <div class="jm-item second">
-          <div class="jm-item-wrapper">
-            <div class="jm-item-image">
-                            <img src="http://placehold.it/460x460" alt="" />
-                            <div class="jm-item-description">
-                                    <div class="jm-item-button">
-                                        <a href="details_prod.html"><i class="fa fa-chain-broken"></i></a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="product-title"><a href="details_prod.html" >ENVY <span>100L</span></a><p class="prod-ts-price">$256.00</p></div>
-                 <div class="tshirt-buy"><a href="#" class="tshirt-cart"><i class="fa fa-shopping-cart"></i>Add</a></div>
-               </li>
-              <li>
-                  <div class="jm-item second">
-          <div class="jm-item-wrapper">
-            <div class="jm-item-image">
-                            <img src="http://placehold.it/460x460" alt="" />
-                            <div class="jm-item-description">
-                                    <div class="jm-item-button">
-                                        <a href="details_prod.html"><i class="fa fa-chain-broken"></i></a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                 </div>
-                  <div class="product-title"><a href="details_prod.html" >BIRTOL <span>PRO</span></a><p class="prod-ts-price">$168.00</p></div>
-                 <div class="tshirt-buy"><a href="#" class="tshirt-cart"><i class="fa fa-shopping-cart"></i>Add</a></div>
-              </li>
-              <li>
-                  <div class="jm-item second">
-          <div class="jm-item-wrapper">
-            <div class="jm-item-image">
-                            <img src="http://placehold.it/460x460" alt="" />
-                            <div class="jm-item-description">
-                                    <div class="jm-item-button">
-                                        <a href="details_prod.html"><i class="fa fa-chain-broken"></i></a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                 </div>
-                  <div class="product-title"><a href="details_prod.html" >JUICE <span>100L</span></a><p class="prod-ts-price">$256.00</p></div>
-                 <div class="tshirt-buy"><a href="#" class="tshirt-cart"><i class="fa fa-shopping-cart"></i>Add</a></div>
-              </li>
-              <li>
-                 <div class="jm-item second">
-          <div class="jm-item-wrapper">
-            <div class="jm-item-image">
-                            <img src="http://placehold.it/460x460" alt="" />
-                            <div class="jm-item-description">
-                                    <div class="jm-item-button">
-                                        <a href="details_prod.html"><i class="fa fa-chain-broken"></i></a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="product-title"><a href="details_prod.html" >MORBEL</a><p class="prod-ts-price">$126.00</p></div>
-                 <div class="tshirt-buy"><a href="#" class="tshirt-cart"><i class="fa fa-shopping-cart"></i>Add</a></div>
-              </li>
-              <li>
-                 <div class="jm-item second">
-          <div class="jm-item-wrapper">
-            <div class="jm-item-image">
-                            <img src="http://placehold.it/460x460" alt="" />
-                            <div class="jm-item-description">
-                                    <div class="jm-item-button">
-                                        <a href="details_prod.html"><i class="fa fa-chain-broken"></i></a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="product-title"><a href="details_prod.html" >BRT <span>100L</span></a><p class="prod-ts-price">$86.00</p></div>
-                 <div class="tshirt-buy"><a href="#" class="tshirt-cart"><i class="fa fa-shopping-cart"></i>Add</a></div>
-              </li>
-              <li>
-                 <div class="jm-item second">
-          <div class="jm-item-wrapper">
-            <div class="jm-item-image">
-                            <img src="http://placehold.it/460x460" alt="" />
-                            <div class="jm-item-description">
-                                    <div class="jm-item-button">
-                                        <a href="details_prod.html"><i class="fa fa-chain-broken"></i></a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                 </div>
-                    <div class="product-title"><a href="details_prod.html" >ICE <span>500R</span></a><p class="prod-ts-price">$312.00</p></div>
-                 <div class="tshirt-buy"><a href="#" class="tshirt-cart"><i class="fa fa-shopping-cart"></i>Add</a></div>
-              </li>
-              <li>
-                 <div class="jm-item second">
-          <div class="jm-item-wrapper">
-            <div class="jm-item-image">
-                            <img src="http://placehold.it/460x460" alt="" />
-                            <div class="jm-item-description">
-                                    <div class="jm-item-button">
-                                        <a href="details_prod.html"><i class="fa fa-chain-broken"></i></a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="product-title"><a href="details_prod.html" >JUICE <span>100L</span></a><p class="prod-ts-price">$256.00</p></div>
-                 <div class="tshirt-buy"><a href="#" class="tshirt-cart"><i class="fa fa-shopping-cart"></i>Add</a></div>
-              </li>
-              <li>
-                 <div class="jm-item second">
-          <div class="jm-item-wrapper">
-            <div class="jm-item-image">
-                            <img src="http://placehold.it/460x460" alt="" />
-                            <div class="jm-item-description">
-                                    <div class="jm-item-button">
-                                        <a href="details_prod.html"><i class="fa fa-chain-broken"></i></a>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="product-title"><a href="details_prod.html" >JUICE <span>100L</span></a><p class="prod-ts-price">$256.00</p></div>
-                 <div class="tshirt-buy"><a href="#" class="tshirt-cart"><i class="fa fa-shopping-cart"></i>Add</a></div>
-              </li>
-            </ul>
-           </div>
-        </div>
-     </section-->
-<!--SECTION SPONSOR-->
-<!--section class="container">
-           <div class="client-sport client-sport-nomargin home-pg">
-               <div class="content-banner">
-                     <ul class="sponsor second">
-                      <li><img src="images/sponsor/01-mamy-eu.jpg" alt="" /></li>
-                      <li><img src="images/sponsor/02-banca_popolare_di_novara.jpg" alt="" /></li>
-                      <li><img src="images/sponsor/03-tvh.jpg" alt="" /></li>
-                      <li><img src="images/sponsor/04-farmacie_celesia.jpg" alt="" /></li>
-                      <li><img src="images/sponsor/05-mg.jpg" alt="" /></li>
-                      <li><img src="images/sponsor/06-nordcom_vodafone.jpg" alt="" /></li>
-                      <li><img src="images/sponsor/07-icorip_coatings.jpg" alt="" /></li>
-                      <li><img src="images/sponsor/08-vc_engineering.jpg" alt="" /></li>
-                      <li><img src="images/sponsor/09-color_box_center.jpg" alt="" /></li>
-                    </ul>
-                </div>
-          </div>
-     </section-->
-
 
 <?php
 get_footer();

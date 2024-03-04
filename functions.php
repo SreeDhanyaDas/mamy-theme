@@ -10,13 +10,14 @@
  */
 
 // This theme requires WordPress 5.3 or later.
-if(version_compare($GLOBALS['wp_version'], '5.3', '<')) {
-	require get_template_directory().'/inc/back-compat.php';
+if (version_compare($GLOBALS['wp_version'], '5.3', '<')) {
+	require get_template_directory() . '/inc/back-compat.php';
 }
 
 
-function custom_admin_js() {
-	wp_enqueue_script('custom_wp_admin_js', get_template_directory_uri().'/js/admin_section.js', false, '1.0.0');
+function custom_admin_js()
+{
+	wp_enqueue_script('custom_wp_admin_js', get_template_directory_uri() . '/js/admin_section.js', false, '1.0.0');
 	wp_enqueue_script('custom_wp_admin_js');
 	wp_localize_script('custom_wp_admin_js', 'frontendajax', array('ajaxurl' => admin_url('admin-ajax.php')));
 }
@@ -24,7 +25,7 @@ function custom_admin_js() {
 add_action('admin_enqueue_scripts', 'custom_admin_js');
 add_action('wp_enqueue_scripts', 'custom_admin_js');
 
-if(!function_exists('twenty_twenty_one_setup')) {
+if (!function_exists('twenty_twenty_one_setup')) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -36,7 +37,8 @@ if(!function_exists('twenty_twenty_one_setup')) {
 	 *
 	 * @return void
 	 */
-	function twenty_twenty_one_setup() {
+	function twenty_twenty_one_setup()
+	{
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support('automatic-feed-links');
@@ -135,7 +137,7 @@ if(!function_exists('twenty_twenty_one_setup')) {
 		// Note, the is_IE global variable is defined by WordPress and is used
 		// to detect if the current browser is internet explorer.
 		global $is_IE;
-		if($is_IE) {
+		if ($is_IE) {
 			$editor_stylesheet_path = './assets/css/ie-editor.css';
 		}
 
@@ -272,42 +274,42 @@ if(!function_exists('twenty_twenty_one_setup')) {
 			array(
 				array(
 					'name' => esc_html__('Purple to yellow', 'twentytwentyone'),
-					'gradient' => 'linear-gradient(160deg, '.$purple.' 0%, '.$yellow.' 100%)',
+					'gradient' => 'linear-gradient(160deg, ' . $purple . ' 0%, ' . $yellow . ' 100%)',
 					'slug' => 'purple-to-yellow',
 				),
 				array(
 					'name' => esc_html__('Yellow to purple', 'twentytwentyone'),
-					'gradient' => 'linear-gradient(160deg, '.$yellow.' 0%, '.$purple.' 100%)',
+					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $purple . ' 100%)',
 					'slug' => 'yellow-to-purple',
 				),
 				array(
 					'name' => esc_html__('Green to yellow', 'twentytwentyone'),
-					'gradient' => 'linear-gradient(160deg, '.$green.' 0%, '.$yellow.' 100%)',
+					'gradient' => 'linear-gradient(160deg, ' . $green . ' 0%, ' . $yellow . ' 100%)',
 					'slug' => 'green-to-yellow',
 				),
 				array(
 					'name' => esc_html__('Yellow to green', 'twentytwentyone'),
-					'gradient' => 'linear-gradient(160deg, '.$yellow.' 0%, '.$green.' 100%)',
+					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $green . ' 100%)',
 					'slug' => 'yellow-to-green',
 				),
 				array(
 					'name' => esc_html__('Red to yellow', 'twentytwentyone'),
-					'gradient' => 'linear-gradient(160deg, '.$red.' 0%, '.$yellow.' 100%)',
+					'gradient' => 'linear-gradient(160deg, ' . $red . ' 0%, ' . $yellow . ' 100%)',
 					'slug' => 'red-to-yellow',
 				),
 				array(
 					'name' => esc_html__('Yellow to red', 'twentytwentyone'),
-					'gradient' => 'linear-gradient(160deg, '.$yellow.' 0%, '.$red.' 100%)',
+					'gradient' => 'linear-gradient(160deg, ' . $yellow . ' 0%, ' . $red . ' 100%)',
 					'slug' => 'yellow-to-red',
 				),
 				array(
 					'name' => esc_html__('Purple to red', 'twentytwentyone'),
-					'gradient' => 'linear-gradient(160deg, '.$purple.' 0%, '.$red.' 100%)',
+					'gradient' => 'linear-gradient(160deg, ' . $purple . ' 0%, ' . $red . ' 100%)',
 					'slug' => 'purple-to-red',
 				),
 				array(
 					'name' => esc_html__('Red to purple', 'twentytwentyone'),
-					'gradient' => 'linear-gradient(160deg, '.$red.' 0%, '.$purple.' 100%)',
+					'gradient' => 'linear-gradient(160deg, ' . $red . ' 0%, ' . $purple . ' 100%)',
 					'slug' => 'red-to-purple',
 				),
 			)
@@ -318,8 +320,8 @@ if(!function_exists('twenty_twenty_one_setup')) {
 		 * This is done conditionally to avoid loading the starter content on every
 		 * page load, as it is a one-off operation only needed once in the customizer.
 		 */
-		if(is_customize_preview()) {
-			require get_template_directory().'/inc/starter-content.php';
+		if (is_customize_preview()) {
+			require get_template_directory() . '/inc/starter-content.php';
 			add_theme_support('starter-content', twenty_twenty_one_get_starter_content());
 		}
 
@@ -358,7 +360,8 @@ add_action('after_setup_theme', 'twenty_twenty_one_setup');
  *
  * @return void
  */
-function twenty_twenty_one_widgets_init() {
+function twenty_twenty_one_widgets_init()
+{
 
 	register_sidebar(
 		array(
@@ -385,7 +388,8 @@ add_action('widgets_init', 'twenty_twenty_one_widgets_init');
  *
  * @return void
  */
-function twenty_twenty_one_content_width() {
+function twenty_twenty_one_content_width()
+{
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
@@ -403,16 +407,17 @@ add_action('after_setup_theme', 'twenty_twenty_one_content_width', 0);
  *
  * @return void
  */
-function twenty_twenty_one_scripts() {
+function twenty_twenty_one_scripts()
+{
 	// Note, the is_IE global variable is defined by WordPress and is used
 	// to detect if the current browser is internet explorer.
 	global $is_IE, $wp_scripts;
-	if($is_IE) {
+	if ($is_IE) {
 		// If IE 11 or below, use a flattened stylesheet with static values replacing CSS Variables.
-		wp_enqueue_style('twenty-twenty-one-style', get_template_directory_uri().'/assets/css/ie.css', array(), wp_get_theme()->get('Version'));
+		wp_enqueue_style('twenty-twenty-one-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get('Version'));
 	} else {
 		// If not IE, use the standard stylesheet.
-		wp_enqueue_style('twenty-twenty-one-style', get_template_directory_uri().'/style.css', array(), wp_get_theme()->get('Version'));
+		wp_enqueue_style('twenty-twenty-one-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get('Version'));
 	}
 
 	// RTL styles.
@@ -421,14 +426,14 @@ function twenty_twenty_one_scripts() {
 
 
 	// Threaded comment reply styles.
-	if(is_singular() && comments_open() && get_option('thread_comments')) {
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 
 	// Register the IE11 polyfill file.
 	wp_register_script(
 		'twenty-twenty-one-ie11-polyfills-asset',
-		get_template_directory_uri().'/assets/js/polyfills.js',
+		get_template_directory_uri() . '/assets/js/polyfills.js',
 		array(),
 		wp_get_theme()->get('Version'),
 		true
@@ -464,7 +469,8 @@ add_action('wp_enqueue_scripts', 'twenty_twenty_one_scripts');
  *
  * @return void
  */
-function twentytwentyone_block_editor_script() {
+function twentytwentyone_block_editor_script()
+{
 
 	wp_enqueue_script('twentytwentyone-editor', get_theme_file_uri('/assets/js/editor.js'), array('wp-blocks', 'wp-dom'), wp_get_theme()->get('Version'), true);
 }
@@ -482,12 +488,13 @@ add_action('enqueue_block_editor_assets', 'twentytwentyone_block_editor_script')
  *
  * @link https://git.io/vWdr2
  */
-function twenty_twenty_one_skip_link_focus_fix() {
+function twenty_twenty_one_skip_link_focus_fix()
+{
 
 	// If SCRIPT_DEBUG is defined and true, print the unminified file.
-	if(defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) {
+	if (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) {
 		echo '<script>';
-		include get_template_directory().'/assets/js/skip-link-focus-fix.js';
+		include get_template_directory() . '/assets/js/skip-link-focus-fix.js';
 		echo '</script>';
 	} else {
 		// The following is minified via `npx terser --compress --mangle -- assets/js/skip-link-focus-fix.js`.
@@ -506,49 +513,51 @@ function twenty_twenty_one_skip_link_focus_fix() {
  *
  * @return void
  */
-function twenty_twenty_one_non_latin_languages() {
+function twenty_twenty_one_non_latin_languages()
+{
 	$custom_css = twenty_twenty_one_get_non_latin_css('front-end');
 
-	if($custom_css) {
+	if ($custom_css) {
 		wp_add_inline_style('twenty-twenty-one-style', $custom_css);
 	}
 }
 add_action('wp_enqueue_scripts', 'twenty_twenty_one_non_latin_languages');
 
 // SVG Icons class.
-require get_template_directory().'/classes/class-twenty-twenty-one-svg-icons.php';
+require get_template_directory() . '/classes/class-twenty-twenty-one-svg-icons.php';
 
 // Custom color classes.
-require get_template_directory().'/classes/class-twenty-twenty-one-custom-colors.php';
+require get_template_directory() . '/classes/class-twenty-twenty-one-custom-colors.php';
 new Twenty_Twenty_One_Custom_Colors();
 
 // Enhance the theme by hooking into WordPress.
-require get_template_directory().'/inc/template-functions.php';
+require get_template_directory() . '/inc/template-functions.php';
 
 // Menu functions and filters.
 //require get_template_directory() . '/inc/menu-functions.php';
 
 // Custom template tags for the theme.
-require get_template_directory().'/inc/template-tags.php';
+require get_template_directory() . '/inc/template-tags.php';
 
 // Customizer additions.
-require get_template_directory().'/classes/class-twenty-twenty-one-customize.php';
+require get_template_directory() . '/classes/class-twenty-twenty-one-customize.php';
 new Twenty_Twenty_One_Customize();
 
 // Block Patterns.
-require get_template_directory().'/inc/block-patterns.php';
+require get_template_directory() . '/inc/block-patterns.php';
 
 // Block Styles.
-require get_template_directory().'/inc/block-styles.php';
+require get_template_directory() . '/inc/block-styles.php';
 
 // Dark Mode.
-require_once get_template_directory().'/classes/class-twenty-twenty-one-dark-mode.php';
+require_once get_template_directory() . '/classes/class-twenty-twenty-one-dark-mode.php';
 new Twenty_Twenty_One_Dark_Mode();
 
-require_once get_template_directory().'/classes/class-walker-nav-menu.php';
+require_once get_template_directory() . '/classes/class-walker-nav-menu.php';
 new WPDocs_Walker_Nav_Menu();
 
-function twentytwentyone_customize_preview_init() {
+function twentytwentyone_customize_preview_init()
+{
 	wp_enqueue_script(
 		'twentytwentyone-customize-helpers',
 		get_theme_file_uri('/assets/js/customize-helpers.js'),
@@ -574,7 +583,8 @@ add_action('customize_preview_init', 'twentytwentyone_customize_preview_init');
  *
  * @return void
  */
-function twentytwentyone_customize_controls_enqueue_scripts() {
+function twentytwentyone_customize_controls_enqueue_scripts()
+{
 
 	wp_enqueue_script(
 		'twentytwentyone-customize-helpers',
@@ -593,7 +603,8 @@ add_action('customize_controls_enqueue_scripts', 'twentytwentyone_customize_cont
  *
  * @return void
  */
-function twentytwentyone_the_html_classes() {
+function twentytwentyone_the_html_classes()
+{
 	/**
 	 * Filters the classes for the main <html> element.
 	 *
@@ -602,10 +613,10 @@ function twentytwentyone_the_html_classes() {
 	 * @param string The list of classes. Default empty string.
 	 */
 	$classes = apply_filters('twentytwentyone_html_classes', '');
-	if(!$classes) {
+	if (!$classes) {
 		return;
 	}
-	echo 'class="'.esc_attr($classes).'"';
+	echo 'class="' . esc_attr($classes) . '"';
 }
 
 
@@ -680,7 +691,8 @@ add_post_type_support('news', 'thumbnail');
  *
  * @return void
  */
-function twentytwentyone_add_ie_class() {
+function twentytwentyone_add_ie_class()
+{
 	?>
 	<script>
 		if (-1 !== navigator.userAgent.indexOf('MSIE') || -1 !== navigator.appVersion.indexOf('Trident/')) {
@@ -691,14 +703,15 @@ function twentytwentyone_add_ie_class() {
 }
 add_action('wp_footer', 'twentytwentyone_add_ie_class');
 
-if(!function_exists('rookie_get_sidebar_setting')) {
-	function rookie_get_sidebar_setting() {
+if (!function_exists('rookie_get_sidebar_setting')) {
+	function rookie_get_sidebar_setting()
+	{
 		// Get theme options
-		$options = (array)get_option('themeboy', array());
+		$options = (array) get_option('themeboy', array());
 		$options = array_map('esc_attr', $options);
 
 		// Apply default setting
-		if(empty($options['sidebar'])) {
+		if (empty($options['sidebar'])) {
 			$options['sidebar'] = is_rtl() ? 'left' : 'right';
 		}
 
@@ -706,7 +719,7 @@ if(!function_exists('rookie_get_sidebar_setting')) {
 	}
 }
 
-if(!function_exists('wp_get_list_item_separator')):
+if (!function_exists('wp_get_list_item_separator')):
 	/**
 	 * Retrieves the list item separator based on the locale.
 	 *
@@ -714,13 +727,15 @@ if(!function_exists('wp_get_list_item_separator')):
 	 *
 	 * @since 6.0.0
 	 */
-	function wp_get_list_item_separator() {
+	function wp_get_list_item_separator()
+	{
 		/* translators: Used between list items, there is a space after the comma. */
 		return __(', ', 'twentytwentyone');
 	}
 endif;
 // Register custom post type for photo gallery
-function create_photo_gallery_post_type() {
+function create_photo_gallery_post_type()
+{
 	register_post_type(
 		'photo_gallery',
 		array(
@@ -748,7 +763,8 @@ function create_photo_gallery_post_type() {
 add_action('init', 'create_photo_gallery_post_type');
 
 // Footer widgets adding custom
-function mytheme_widgets_init() {
+function mytheme_widgets_init()
+{
 	register_sidebar(
 		array(
 			'name' => 'Footer Widget Area 1',
@@ -794,14 +810,16 @@ function mytheme_widgets_init() {
 add_action('widgets_init', 'mytheme_widgets_init');
 
 // Adding Category to page 
-function pagecategory_settings() {
+function pagecategory_settings()
+{
 	register_taxonomy_for_object_type('category', 'page');
 }
 
 add_action('init', 'pagecategory_settings');
 
 // Register Custom Post Type for News
-function custom_post_type_news() {
+function custom_post_type_news()
+{
 	$labels = array(
 		'name' => _x('News', 'Post Type General Name', 'text_domain'),
 		'singular_name' => _x('News', 'Post Type Singular Name', 'text_domain'),
@@ -856,13 +874,15 @@ function custom_post_type_news() {
 add_action('init', 'custom_post_type_news', 0);
 
 // Add existing category  to custom post type 'news'
-function add_category_to_custom_post_type() {
+function add_category_to_custom_post_type()
+{
 	register_taxonomy_for_object_type('category', 'news');
 }
 add_action('init', 'add_category_to_custom_post_type');
 
 // Register Custom Taxonomy
-function custom_taxonomy_game_results() {
+function custom_taxonomy_game_results()
+{
 	$labels = array(
 		'name' => _x('Game Results', 'Taxonomy General Name', 'text_domain'),
 		'singular_name' => _x('Game Result', 'Taxonomy Singular Name', 'text_domain'),
@@ -893,7 +913,8 @@ add_action('init', 'custom_taxonomy_game_results', 0);
 // Shortcode for the contact form
 add_shortcode('contact_form', 'contact_form_shortcode');
 // Register the shortcode for the contact form
-function contact_form_shortcode() {
+function contact_form_shortcode()
+{
 	?>
 	<form id="contactForm" method="post">
 		<div class="name">
@@ -955,7 +976,8 @@ function contact_form_shortcode() {
 	</script>
 	<?php
 }
-function send_mail() {
+function send_mail()
+{
 
 	$name = sanitize_text_field($_POST['name']);
 	$email = sanitize_email($_POST['email']);
@@ -973,15 +995,15 @@ function send_mail() {
 	$message_body .= '<table style="width: 100%; border-collapse: collapse;">';
 	$message_body .= '<tr>';
 	$message_body .= '<td></td><strong>Name</strong></td>';
-	$message_body .= '<td>'.esc_html($name).'</td>';
+	$message_body .= '<td>' . esc_html($name) . '</td>';
 	$message_body .= '</tr>';
 	$message_body .= '<tr>';
 	$message_body .= '<td></td><strong>Email</strong></td>';
-	$message_body .= '<td>'.esc_html($email).'</td>';
+	$message_body .= '<td>' . esc_html($email) . '</td>';
 	$message_body .= '</tr>';
 	$message_body .= '<tr>';
 	$message_body .= '<td></td><strong>Message</strong></td>';
-	$message_body .= '<td>'.nl2br(esc_html($message)).'</td>';
+	$message_body .= '<td>' . nl2br(esc_html($message)) . '</td>';
 	$message_body .= '</tr>';
 	$message_body .= '</table>';
 	$message_body .= '</div></body></html>';
@@ -989,7 +1011,7 @@ function send_mail() {
 	// Send the email
 	$sent = wp_mail($to, $subject, $message_body, $headers);
 
-	if($sent) {
+	if ($sent) {
 		// Email sent successfully
 		$response['success'] = true;
 		$response['message'] = 'Thank you for your message!';

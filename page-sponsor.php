@@ -82,10 +82,7 @@ $post = get_post(get_the_ID());
     usort($displayedSponsors, function ($a, $b) use ($order) {
         return array_search($a['sponsor_name'], $order) - array_search($b['sponsor_name'], $order);
     });
-    // echo "<pre>";
-    // print_r($displayedSponsors);
-    // echo "</pre>";
-    
+       
     foreach ($displayedSponsors as $sponsor):
         ?>
         <div id="c-calend" class="top-score-title right-score col-md-12">

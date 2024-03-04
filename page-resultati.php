@@ -52,28 +52,20 @@ $post_cat_name = $post_categories[0]->name;
                     }
 
                     $today = date('Y-m-d');
-
                     $standing_category = array();
                     $standing_categories = get_option('standing_categories');
-        
+
                     foreach ($standing_categories as $category) {
                         if ($post_cat_slug == $category['parent_standings']) {
                             $standing_category = $category['sub_standing'];
                             array_push($standing_category, $category['parent_standings']);
-                        }else {
+                        } else {
                             array_push($standing_category, $post_cat_slug);
                         }
                     }
 
                     $lastgame_args = array(
                         'post_type' => 'sp_event',
-                        // 'tax_query' => array(
-                        //     array(
-                        //         'taxonomy' => 'sp_league',
-                        //         'field' => 'slug',
-                        //         'terms' => $cat_slug
-                        //     )
-                        // ),
                         'tax_query' => array(
                             'relation' => 'AND',
                             array(
@@ -81,7 +73,7 @@ $post_cat_name = $post_categories[0]->name;
                                 'field' => 'slug',
                                 'terms' => $standing_category,
                             ),
-    
+
                         ),
                         'date_query' => array(
                             array(
@@ -98,10 +90,8 @@ $post_cat_name = $post_categories[0]->name;
 
                     $last_game = new WP_Query($lastgame_args);
 
-
                     $nextgame_list = array(); // Initialize an empty array to store post data
                     
-
                     if ($last_game->have_posts()) {
                         while ($last_game->have_posts()) {
                             $last_game->the_post();
@@ -190,7 +180,7 @@ $post_cat_name = $post_categories[0]->name;
                     }
 
                     $columnsToShow = 3;
-                                        
+
                     // Display images up to the specified limit
                     $displayedList = array_slice($nextgame_list, 0, $columnsToShow);
                     ?>
@@ -342,7 +332,7 @@ $post_cat_name = $post_categories[0]->name;
                                                 + '<div class="sec_bottom">'
                                                 + '    <a class="i-ico" href="' + gamelist['article_url'] + '">'
                                                 + '        <i class="fa fa-angle-double-right"></i>'
-                                                + '        MORE'
+                                                + '        DETTAGLI'
                                                 + '    </a>'
                                                 + '</div>'
                                                 + '</div>');
@@ -385,6 +375,7 @@ $post_cat_name = $post_categories[0]->name;
                         );
                         // Rest of your loop or processing logic here
                     }
+
                     ?>
                     <div class="news_lists">
                         <?php $i = 0;

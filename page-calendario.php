@@ -69,8 +69,8 @@ $post_cat_name = $post_categories[0]->name;
                     'posts_per_page' => -1,
                     'order' => 'DESC',
                     'orderby' => array(
-                        'date' => 'ASC', // Order by date in ascending order
-                        'year' => 'DESC', // Order by year in descending order
+                        'date' => 'ASC', 
+                        'year' => 'DESC', 
                     ),
                     'date_query' => array(
                         'after' => $start_date,
@@ -89,7 +89,6 @@ $post_cat_name = $post_categories[0]->name;
                 )
             );
 
-
             $i = 0;
             $calendar_array = array();
             if ($query->have_posts()) {
@@ -107,7 +106,6 @@ $post_cat_name = $post_categories[0]->name;
                     $formatted_date = strftime('%e %B %Y', strtotime($post_date));
                     $formattedDate = mb_convert_case($formatted_date, MB_CASE_TITLE, "UTF-8");
                     if ($description) {
-
                         $trimmed_description = substr($description, 0, 100) . '...';
                     } else {
                         $trimmed_description = '____';

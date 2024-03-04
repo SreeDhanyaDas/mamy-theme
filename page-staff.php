@@ -34,13 +34,6 @@ get_header();
 						'posts_per_page' => -1,
 						'order' => 'ASC',
 						'orderby' => 'title',
-						// 'tax_query' => array(
-						// 	array(
-						// 		'taxonomy' => 'sp_league',
-						// 		'field' => 'slug',
-						// 		'terms' => 'serie-c'
-						// 	)
-						// )
 					)
 				);
 				$i = 0;
